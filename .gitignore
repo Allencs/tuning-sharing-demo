@@ -1,0 +1,17 @@
+..classpath.icloud
+..project.icloud
+.classpath
+.project
+.settings/
+target/
+.idea/
+.metadata/
+.recommenders/
+*.iml
+**/build/
+rollings/
+.gradle
+*.log
+.DS_Store
+*.gz
+out/
