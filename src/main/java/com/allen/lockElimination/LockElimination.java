@@ -15,23 +15,19 @@ import java.util.concurrent.TimeUnit;
  */
 @State(Scope.Benchmark)
 public class LockElimination {
-
-    StringBuffer buffer = new StringBuffer();
-    // 锁粗化
-    public void append(){
-        buffer.append("aaa").append(" bbb").append(" ccc");
-    }
-
     /**
      * 锁消除
+     * -server逃逸分析和锁消除必须在server模式下
      * -XX:+EliminateLocks 开启锁消除(jdk8默认开启）
      * -XX:-EliminateLocks 关闭锁消除
+     *
      * @param str1
      * @param str2
      */
     public StringBuffer append(String str1, String str2) {
         StringBuffer sb = new StringBuffer();
-        sb.append(str1).append(str2);
+        sb.append(str1);
+        sb.append(str2);
         return sb;
     }
 
