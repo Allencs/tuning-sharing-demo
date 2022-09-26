@@ -7,6 +7,8 @@ import java.util.concurrent.ArrayBlockingQueue;
  * @Author: allen
  * @Date: 2022/9/23 13:23
  * @Description:
+ * -XX:+PrintGCDetails观察GC情况
+ * 区别于-XX:+UseStringDeduplication字符串去重功能，此能力只有在G1垃圾收集器下才适用
  */
 public class Perf_StringIntern {
     public static ArrayBlockingQueue<String> arrayBlockingQueue = new ArrayBlockingQueue<>(10000000);
@@ -19,8 +21,8 @@ public class Perf_StringIntern {
         }
         for (int i =0; i < 10000000; i++) {
             try {
-                arrayBlockingQueue.put(new String(String.valueOf(data[i % data.length])));
-//                arrayBlockingQueue.put(new String(String.valueOf(data[i % data.length])).intern());
+//                arrayBlockingQueue.put(String.valueOf(data[i % data.length]));
+                arrayBlockingQueue.put(String.valueOf(data[i % data.length]).intern());
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
