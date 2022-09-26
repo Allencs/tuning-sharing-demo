@@ -4,6 +4,7 @@ package com.allen.testIntern;
  * @Author: allen
  * @Date: 2022/7/5 10:49
  * @Description:
+ * -XX:+PrintStringTableStatistics输出字符串常量池统计信息
  * 1、使用 new 创建时，检测常量池中是否存在对应String对象的char数组,如果不存在则在字符串常量池中创建一个string，最后在堆中创建String对象。
  * 2、如果直接使用字面量，则先看常量池中是否有相等的字符串，如果有，则返回此字符串，如果没有，则在常量池中创建
  *
