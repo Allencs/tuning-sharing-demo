@@ -7,6 +7,7 @@ import java.util.concurrent.ArrayBlockingQueue;
  * @Author: allen
  * @Date: 2022/9/23 13:23
  * @Description:
+ * -XX:+PrintGCDetails观察GC情况
  * 区别于-XX:+UseStringDeduplication字符串去重功能，此能力只有在G1垃圾收集器下才适用
  */
 public class Perf_StringIntern {

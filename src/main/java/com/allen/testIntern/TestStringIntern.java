@@ -40,9 +40,5 @@ public class TestStringIntern {
         // false
         System.out.println(s8 == s6);
         System.out.println("--------------------------");
-
-//        String a = new String("perftuning").intern();
-//        String b = new String("perftuning").intern();
-//        System.out.println(a == b);
     }
 }
