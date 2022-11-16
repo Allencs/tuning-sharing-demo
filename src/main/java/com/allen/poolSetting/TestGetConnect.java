@@ -50,11 +50,11 @@ public class TestGetConnect {
         while (i < 10000) {
             executorService.submit(() -> {
                 try {
+                    long starTime = System.currentTimeMillis();
                     Connection conn = testGetConnect.getConnection();
-                    logger.info("线程：「{}」得到连接，开始查询...", Thread.currentThread().getName());
                     Thread.sleep(1000);
-                    logger.info("线程：「{}」查询结束。", Thread.currentThread().getName());
                     conn.close();
+                    logger.info("线程：「{}」查询结束，耗时：{}", Thread.currentThread().getName(), (System.currentTimeMillis() - starTime));
                 } catch (SQLException | InterruptedException throwables) {
                     throwables.printStackTrace();
                 }
